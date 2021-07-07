@@ -9,13 +9,13 @@ import (
 )
 
 type Transaction struct {
-	Id       int
-	Code     string
-	Currency string
-	Mount    float64
-	Sender   string
-	Receiver string
-	Date     time.Time
+	Id       int       `json:"Id"`
+	Code     string    `json:"Code"`
+	Currency string    `json:"Currency"`
+	Mount    float64   `json:"Mount"`
+	Sender   string    `json:"Sender"`
+	Receiver string    `json:"Receiver"`
+	Date     time.Time `json:"Date"`
 }
 
 func check(e error) {
@@ -44,6 +44,6 @@ func getAll(c *gin.Context) {
 func main() {
 	router := gin.Default()
 	router.GET("/hello-world", hello)
-	router.GET("/products", getAll)
+	router.GET("/transactions", getAll)
 	router.Run()
 }
